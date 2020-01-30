@@ -53,17 +53,26 @@ star_data %>%
   summarize(r = cor(x,y))
 ```
 
-The correlation coefficient for the dino dataset is less and more negative than the star dataset correlation coeeficient. Both datasets have very weak negative correlations, but the dino dataset has a "stronger" negative correlation than the star dataset.
+The correlation coefficient for the dino dataset is less and more negative than the star dataset correlation coefficient. Both datasets have very weak negative correlations, but the dino dataset has a "stronger" negative correlation than the star dataset.
 
 ### Exercise 4
 
-(Add code and narrative as needed. Note that two R chunks are given but they are not labeled. Use the convention from above to name them appropriately.)
+The circle dataset plotted onto a graph:
 
-```{r}
+```{r plot-circle}
+circle_data <- datasaurus_dozen %>%
+  filter(dataset == "circle")
+ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
+  geom_point()
+```
+The correlation coefficient between `x` and `y` in this dataset:
+
+```{r cor-circle}
+circle_data %>%
+  summarize(r = cor(x, y))
 ```
 
-```{r}
-```
+The correlation coefficient for the circle dataset is less and more negative than the dino dataset correlation coefficient. Both datasets have very weak negative correlations, but the circle dataset has a "stronger" negative correlation than the dino dataset.
 
 ### Exercise 5
 
