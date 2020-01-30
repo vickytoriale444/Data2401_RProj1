@@ -21,7 +21,7 @@ The datasaurus_dozen file has 1846 rows and 3 columns. The variables included in
 
 The dino dataset plotted onto a graph:
 
-```{r plot-dino, fig.height=3, fig.width=6}
+```{r plot-dino, fig.width=10}
 dino_data <- datasaurus_dozen %>%
   filter(dataset == "dino")
 ggplot(data = dino_data, mapping = aes(x = x, y = y)) +
@@ -39,7 +39,7 @@ dino_data %>%
 
 The star dataset plotted onto a graph:
 
-```{r plot-star}
+```{r plot-star, fig.width=10}
 star_data <- datasaurus_dozen %>%
   filter(dataset == "star")
 ggplot(data = star_data, mapping = aes(x = x, y = y)) +
@@ -59,7 +59,7 @@ The correlation coefficient for the dino dataset is less and more negative than 
 
 The circle dataset plotted onto a graph:
 
-```{r plot-circle}
+```{r plot-circle, fig.width=10}
 circle_data <- datasaurus_dozen %>%
   filter(dataset == "circle")
 ggplot(data = circle_data, mapping = aes(x = x, y = y)) +
@@ -76,4 +76,17 @@ The correlation coefficient for the circle dataset is less and more negative tha
 
 ### Exercise 5
 
-(Add code and narrative as needed. To add R chunks either type out the backticks, curly braces, and the letter `r` or use the Insert chunk button above, green C+.)
+All of the plotted datasets and their summary correlation coefficients
+
+```{r Datasets/Correlation Coefficients, fig.height=20, fig.width=10}
+ggplot(datasaurus_dozen, aes(x = x, y = y, color = dataset))+
+  geom_point()+
+  facet_wrap(~ dataset, ncol = 3) + # facet the dataset variable, in 3 cols
+  theme(legend.position = "none")
+
+datasaurus_dozen %>%
+  group_by(dataset) %>%
+  summarize(r = cor(x, y)) %>%
+  print(13)
+```
+  
