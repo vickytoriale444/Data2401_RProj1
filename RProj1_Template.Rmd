@@ -1,8 +1,10 @@
 ---
 title: "R Project 1 - Hello R"
-author: "Dr. Katherine Shoemaker"
+author: "Victoria Le"
 date: "1/23/2020"
-output: html_document
+output:
+  html_document: default
+  pdf_document: default
 ---
 
 ### Load packages
